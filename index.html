@@ -1,1 +1,167 @@
+<?php
+/**
+ * PROFESSIONAL PRIDE THEME - ALL-IN-ONE
+ * You can edit your social links in the array below.
+ */
+$socialLinks = [
+    "Discord"   => "https://discord.com/invite/yourlink",
+    "Facebook"  => "https://facebook.com/yourprofile",
+    "YouTube"   => "https://youtube.com/c/yourchannel",
+    "Instagram" => "https://instagram.com/yourhandle",
+    "Threads"   => "https://threads.net/@yourhandle",
+    "LinkedIn"  => "https://linkedin.com/in/yourprofile"
+];
+?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Profile</title>
+    <style>
+        /* CSS STYLES */
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --text-color: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            overflow: hidden;
+        }
+
+        /* Animated Pride Gradient Background */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, #ffadad, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #bdb2ff, #ffc6ff);
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Professional Glass Card */
+        .profile-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+
+        p.bio {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        /* Social Link Buttons */
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-link {
+            text-decoration: none;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-link:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.03);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-gradient"></div>
+
+    <div class="profile-card">
+        <img src="https://via.placeholder.com/150" alt="Avatar" class="profile-img">
+        
+        <h1>Your Name</h1>
+        <p class="bio">Content Creator | Professional Enthusiast</p>
+
+        <div class="links-container">
+            <?php foreach($socialLinks as $name => $url): ?>
+                <a href="<?php echo $url; ?>" target="_blank" class="btn-link">
+                    <?php echo $name; ?>
+                </a>
+            <?php endforeach; ?>
+        </div>
+
+        <footer>
+            Built with Pride &copy; <?php echo date("Y"); ?>
+        </footer>
+    </div>
+
+    <script>
+        // JS: Log for confirmation or future interactions
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Portfolio Loaded Successfully");
+        });
+    </script>
+</body>
+</html>
