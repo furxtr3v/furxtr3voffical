@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Profile | Pride Edition</title>
+    <title>Professional Profile</title>
     <style>
-        /* CSS STYLES */
         :root {
-            --glass-bg: rgba(255, 255, 255, 0.15);
-            --glass-border: rgba(255, 255, 255, 0.3);
-            --text-color: #ffffff;
-            /* Professional Pride Palette */
-            --pride-red: #ffadad;
-            --pride-orange: #ffd6a5;
-            --pride-yellow: #fdffb6;
-            --pride-green: #caffbf;
-            --pride-blue: #9bf6ff;
-            --pride-indigo: #a0c4ff;
-            --pride-purple: #bdb2ff;
-            --pride-pink: #ffc6ff;
+            /* Muted, Professional Pride Palette */
+            --bg-dark: #0f172a;
+            --muted-red: #4a1d1d;
+            --muted-orange: #4a371d;
+            --muted-yellow: #4a471d;
+            --muted-green: #1d4a2d;
+            --muted-blue: #1d354a;
+            --muted-purple: #2e1d4a;
+            
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
         }
 
         * {
@@ -28,17 +28,17 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-color);
+            color: var(--text-main);
+            background-color: var(--bg-dark);
             overflow: hidden;
-            background-color: #121212; /* Fallback */
         }
 
-        /* Animated Pride Gradient Background */
+        /* Subtle, Slow-Moving Professional Gradient */
         .bg-gradient {
             position: fixed;
             top: 0;
@@ -47,108 +47,90 @@
             height: 100%;
             z-index: -1;
             background: linear-gradient(-45deg, 
-                var(--pride-red), 
-                var(--pride-orange), 
-                var(--pride-yellow), 
-                var(--pride-green), 
-                var(--pride-blue), 
-                var(--pride-indigo), 
-                var(--pride-purple), 
-                var(--pride-pink)
+                var(--bg-dark), 
+                var(--muted-purple), 
+                var(--muted-blue), 
+                var(--muted-green),
+                var(--bg-dark)
             );
             background-size: 400% 400%;
-            animation: gradientMove 18s ease infinite;
+            animation: slowFlow 20s ease infinite;
         }
 
-        @keyframes gradientMove {
+        @keyframes slowFlow {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Professional Glass Card */
+        /* Sleek Card Design */
         .profile-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
-            border-radius: 28px;
-            padding: 40px;
+            border-radius: 20px;
+            padding: 48px 32px;
             width: 90%;
-            max-width: 420px;
+            max-width: 380px;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
         .profile-img {
-            width: 110px;
-            height: 110px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 0.8);
+            background: linear-gradient(45deg, #6366f1, #a855f7); /* Subtle accent */
+            padding: 3px;
             margin-bottom: 20px;
             object-fit: cover;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         h1 {
-            font-size: 2rem;
-            margin-bottom: 8px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            margin-bottom: 4px;
         }
 
-        p.bio {
-            font-size: 1rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
-            font-weight: 300;
+        .bio {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-bottom: 32px;
         }
 
-        /* Social Link Buttons */
+        /* Minimalist Links */
         .links-container {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 10px;
         }
 
         .btn-link {
             text-decoration: none;
-            color: #fff;
-            background: rgba(255, 255, 255, 0.12);
-            padding: 14px;
-            border-radius: 14px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
         }
 
         .btn-link:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
-            border-color: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .btn-link:active {
-            transform: translateY(0);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
         }
 
         footer {
-            margin-top: 35px;
-            font-size: 0.8rem;
-            opacity: 0.7;
-            letter-spacing: 1px;
+            margin-top: 32px;
+            font-size: 0.7rem;
+            color: var(--text-dim);
             text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
     </style>
 </head>
@@ -157,10 +139,10 @@
     <div class="bg-gradient"></div>
 
     <div class="profile-card">
-        <img src="https://via.placeholder.com/150" alt="Avatar" class="profile-img">
+        <img src="https://via.placeholder.com/150" alt="Profile" class="profile-img">
         
         <h1>Your Name</h1>
-        <p class="bio">Creative Professional • Advocate • Designer</p>
+        <p class="bio">Digital Creator & Professional</p>
 
         <div class="links-container">
             <a href="#" target="_blank" class="btn-link">Discord</a>
@@ -171,14 +153,9 @@
         </div>
 
         <footer>
-            Pride Portfolio 2026
+            Est. 2026
         </footer>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log("Website ready! Send your social links to update the buttons.");
-        });
-    </script>
 </body>
 </html>
