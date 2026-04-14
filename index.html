@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FurxTr3v's Official Site</title>
+    <title>FurxTr3v's Den</title>
     <style>
         :root {
-            /* Muted, Professional Pride Palette */
-            --bg-dark: #0f172a;
-            --muted-purple: #2e1d4a;
-            --muted-blue: #1d354a;
-            --muted-green: #1d4a2d;
+            /* Chill Sunset Pride Palette */
+            --warm-bg: #1a1625;
+            --furry-peach: #ffb5a7;
+            --furry-lavender: #cdb4db;
+            --furry-teal: #99d98c;
             
-            --glass-bg: rgba(30, 41, 59, 0.75);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --text-main: #f8fafc;
-            --text-dim: #94a3b8;
-
-            /* Brand Colors for subtle hover states */
-            --discord: #5865F2;
-            --youtube: #FF0000;
-            --twitter: #1DA1F2;
-            --book: #10b981;
+            --glass-bg: rgba(45, 38, 64, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --text-main: #fcf6bd; /* Soft cream text */
+            --text-dim: #b7b7a4;
+            
+            /* Social Brand Accents */
+            --accent-discord: #5865F2;
+            --accent-twitter: #1DA1F2;
+            --accent-youtube: #ff4d4d;
+            --accent-book: #f08080;
         }
 
         * {
@@ -31,17 +31,17 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            font-family: 'Quicksand', -apple-system, sans-serif; /* Rounded, friendly font */
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-main);
-            background-color: var(--bg-dark);
+            background-color: var(--warm-bg);
             overflow: hidden;
         }
 
-        /* Subtle Slow-Moving Gradient */
+        /* Animated Chill Gradient */
         .bg-gradient {
             position: fixed;
             top: 0;
@@ -50,14 +50,25 @@
             height: 100%;
             z-index: -1;
             background: linear-gradient(-45deg, 
-                var(--bg-dark), 
-                var(--muted-purple), 
-                var(--muted-blue), 
-                var(--muted-green),
-                var(--bg-dark)
+                #2d232e, 
+                #543855, 
+                #3b4d61, 
+                #2d232e
             );
             background-size: 400% 400%;
-            animation: slowFlow 20s ease infinite;
+            animation: slowFlow 25s ease infinite;
+        }
+
+        /* Subtle Paw Print Background Layer */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M20 10c-2 0-3 2-3 4s1 3 3 3 3-1 3-3-1-4-3-4zm-7 3c-2 0-3 2-3 4s1 3 3 3 3-1 3-3-1-4-3-4zm14 0c-2 0-3 2-3 4s1 3 3 3 3-1 3-3-1-4-3-4z' fill='%23ffffff'/%3E%3C/svg%3E");
         }
 
         @keyframes slowFlow {
@@ -66,52 +77,69 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Sleek Card Design */
+        /* "Plush" Glass Card */
         .profile-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 40px 32px;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 2px solid var(--glass-border);
+            border-radius: 40px; /* More rounded for a softer feel */
+            padding: 50px 30px;
             width: 90%;
-            max-width: 400px;
+            max-width: 420px;
             text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            animation: bounceIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes bounceIn {
+            from { opacity: 0; transform: scale(0.9) translateY(30px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .profile-img-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
         }
 
         .profile-img {
-            width: 100px;
-            height: 100px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #6366f1, #a855f7);
-            padding: 3px;
-            margin-bottom: 20px;
+            border: 4px solid var(--furry-peach);
             object-fit: cover;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 0 20px rgba(255, 181, 167, 0.3);
+        }
+
+        /* Paw Badge */
+        .badge {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: var(--furry-lavender);
+            color: #1a1625;
+            padding: 5px;
+            border-radius: 50%;
+            font-size: 14px;
+            border: 2px solid var(--warm-bg);
         }
 
         h1 {
-            font-size: 1.75rem;
+            font-size: 2rem;
             font-weight: 700;
-            letter-spacing: -0.025em;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
+            color: var(--furry-peach);
         }
 
         .bio {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--text-dim);
-            margin-bottom: 32px;
-            line-height: 1.5;
+            margin-bottom: 30px;
+            font-style: italic;
         }
 
-        /* Minimalist Links */
+        /* Soft Link Buttons */
         .links-container {
             display: flex;
             flex-direction: column;
@@ -121,60 +149,64 @@
         .btn-link {
             text-decoration: none;
             color: var(--text-main);
-            background: rgba(255, 255, 255, 0.04);
-            padding: 14px;
-            border-radius: 12px;
-            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
             font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        /* Platform Specific Hover Colors */
-        .link-discord:hover { border-color: var(--discord); color: #fff; background: rgba(88, 101, 242, 0.15); }
-        .link-twitter:hover { border-color: var(--twitter); color: #fff; background: rgba(29, 161, 242, 0.15); }
-        .link-youtube:hover { border-color: var(--youtube); color: #fff; background: rgba(255, 0, 0, 0.15); }
-        .link-book:hover { border-color: var(--book); color: #fff; background: rgba(16, 185, 129, 0.15); }
-
         .btn-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: scale(1.03);
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
         }
+
+        /* Custom Hover Colors */
+        .link-discord:hover { border-color: var(--accent-discord); box-shadow: 0 0 15px rgba(88, 101, 242, 0.2); }
+        .link-twitter:hover { border-color: var(--accent-twitter); box-shadow: 0 0 15px rgba(29, 161, 242, 0.2); }
+        .link-youtube:hover { border-color: var(--accent-youtube); box-shadow: 0 0 15px rgba(255, 77, 77, 0.2); }
+        .link-book:hover { border-color: var(--accent-book); box-shadow: 0 0 15px rgba(240, 128, 128, 0.2); }
 
         footer {
-            margin-top: 32px;
-            font-size: 0.7rem;
+            margin-top: 40px;
+            font-size: 0.8rem;
             color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            opacity: 0.6;
+            letter-spacing: 2px;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="bg-gradient"></div>
+    <div class="bg-pattern"></div>
 
     <div class="profile-card">
-        <img src="https://pbs.twimg.com/profile_images/2042503410042163200/9RaCipry_400x400.jpg" alt="FurxTr3v" class="profile-img">
+        <div class="profile-img-container">
+            <img src="https://pbs.twimg.com/profile_images/2042503410042163200/9RaCipry_400x400.jpg" alt="FurxTr3v" class="profile-img">
+            <span class="badge">🐾</span>
+        </div>
         
         <h1>FurxTr3v</h1>
-        <p class="bio">Content Creator, Author of <strong>AETHERFALL</strong> & Community Lead</p>
+        <p class="bio">Welcome to the den! Author of AETHERFALL & Chill Creator.</p>
 
         <div class="links-container">
             <a href="https://x.com/FurxTr3v" target="_blank" class="btn-link link-twitter">Twitter / X</a>
-            <a href="https://www.youtube.com/@FurxTr3v" target="_blank" class="btn-link link-youtube">YouTube</a>
-            <a href="https://discord.gg/D8rXEc6Xuc" target="_blank" class="btn-link link-discord">Books Discord Server</a>
+            <a href="https://www.youtube.com/@FurxTr3v" target="_blank" class="btn-link link-youtube">The YouTube Channel</a>
+            <a href="https://discord.gg/D8rXEc6Xuc" target="_blank" class="btn-link link-discord">Books & Chill Discord</a>
             
-            <a href="https://tr3vn0x.github.io/AETHERFALL/#acts" target="_blank" class="btn-link link-book">Read AETHERFALL</a>
-            <a href="https://tr3vn0x.github.io/book-applications/" target="_blank" class="btn-link link-book">Book Applications</a>
+            <a href="https://tr3vn0x.github.io/AETHERFALL/#acts" target="_blank" class="btn-link link-book">📖 Read AETHERFALL</a>
+            <a href="https://tr3vn0x.github.io/book-applications/" target="_blank" class="btn-link link-book">✨ Book Applications</a>
         </div>
 
         <footer>
-            FurxTr3v &bull; Est. 2026
+            STAY AWESOME &bull; 2026
         </footer>
     </div>
 
