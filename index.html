@@ -1,30 +1,24 @@
-<?php
-/**
- * PROFESSIONAL PRIDE THEME - ALL-IN-ONE
- * You can edit your social links in the array below.
- */
-$socialLinks = [
-    "Discord"   => "https://discord.com/invite/yourlink",
-    "Facebook"  => "https://facebook.com/yourprofile",
-    "YouTube"   => "https://youtube.com/c/yourchannel",
-    "Instagram" => "https://instagram.com/yourhandle",
-    "Threads"   => "https://threads.net/@yourhandle",
-    "LinkedIn"  => "https://linkedin.com/in/yourprofile"
-];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Profile</title>
+    <title>Professional Profile | Pride Edition</title>
     <style>
         /* CSS STYLES */
         :root {
             --glass-bg: rgba(255, 255, 255, 0.15);
             --glass-border: rgba(255, 255, 255, 0.3);
             --text-color: #ffffff;
+            /* Professional Pride Palette */
+            --pride-red: #ffadad;
+            --pride-orange: #ffd6a5;
+            --pride-yellow: #fdffb6;
+            --pride-green: #caffbf;
+            --pride-blue: #9bf6ff;
+            --pride-indigo: #a0c4ff;
+            --pride-purple: #bdb2ff;
+            --pride-pink: #ffc6ff;
         }
 
         * {
@@ -34,13 +28,14 @@ $socialLinks = [
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-color);
             overflow: hidden;
+            background-color: #121212; /* Fallback */
         }
 
         /* Animated Pride Gradient Background */
@@ -51,9 +46,18 @@ $socialLinks = [
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: linear-gradient(-45deg, #ffadad, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #bdb2ff, #ffc6ff);
+            background: linear-gradient(-45deg, 
+                var(--pride-red), 
+                var(--pride-orange), 
+                var(--pride-yellow), 
+                var(--pride-green), 
+                var(--pride-blue), 
+                var(--pride-indigo), 
+                var(--pride-purple), 
+                var(--pride-pink)
+            );
             background-size: 400% 400%;
-            animation: gradientMove 15s ease infinite;
+            animation: gradientMove 18s ease infinite;
         }
 
         @keyframes gradientMove {
@@ -65,72 +69,86 @@ $socialLinks = [
         /* Professional Glass Card */
         .profile-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            border-radius: 28px;
             padding: 40px;
             width: 90%;
-            max-width: 400px;
+            max-width: 420px;
             text-align: center;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-            animation: fadeIn 1s ease-out;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.8s ease-out;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .profile-img {
-            width: 100px;
-            height: 100px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
-            border: 3px solid #fff;
-            margin-bottom: 15px;
+            border: 4px solid rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
             object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
+            font-size: 2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
             letter-spacing: -0.5px;
         }
 
         p.bio {
-            font-size: 0.9rem;
+            font-size: 1rem;
             opacity: 0.9;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            font-weight: 300;
         }
 
         /* Social Link Buttons */
         .links-container {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
 
         .btn-link {
             text-decoration: none;
             color: #fff;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 12px;
-            border-radius: 12px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 14px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .btn-link:hover {
             background: rgba(255, 255, 255, 0.25);
-            transform: scale(1.03);
+            transform: translateY(-2px);
             border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-link:active {
+            transform: translateY(0);
         }
 
         footer {
-            margin-top: 30px;
-            font-size: 0.75rem;
-            opacity: 0.6;
+            margin-top: 35px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
     </style>
 </head>
@@ -142,25 +160,24 @@ $socialLinks = [
         <img src="https://via.placeholder.com/150" alt="Avatar" class="profile-img">
         
         <h1>Your Name</h1>
-        <p class="bio">Content Creator | Professional Enthusiast</p>
+        <p class="bio">Creative Professional • Advocate • Designer</p>
 
         <div class="links-container">
-            <?php foreach($socialLinks as $name => $url): ?>
-                <a href="<?php echo $url; ?>" target="_blank" class="btn-link">
-                    <?php echo $name; ?>
-                </a>
-            <?php endforeach; ?>
+            <a href="#" target="_blank" class="btn-link">Discord</a>
+            <a href="#" target="_blank" class="btn-link">Facebook</a>
+            <a href="#" target="_blank" class="btn-link">YouTube</a>
+            <a href="#" target="_blank" class="btn-link">Instagram</a>
+            <a href="#" target="_blank" class="btn-link">LinkedIn</a>
         </div>
 
         <footer>
-            Built with Pride &copy; <?php echo date("Y"); ?>
+            Pride Portfolio 2026
         </footer>
     </div>
 
     <script>
-        // JS: Log for confirmation or future interactions
         document.addEventListener('DOMContentLoaded', () => {
-            console.log("Portfolio Loaded Successfully");
+            console.log("Website ready! Send your social links to update the buttons.");
         });
     </script>
 </body>
